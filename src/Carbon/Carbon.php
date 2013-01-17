@@ -749,7 +749,15 @@ class Carbon extends DateTime
      */
     public function diffForHumans(Carbon $other = null)
     {
-        $txt = '';
+        $text = '';
+        $intervals = array(
+            12 * 30 * 24 * 60 * 60  =>  'year',
+            30 * 24 * 60 * 60       =>  'month',
+            24 * 60 * 60            =>  'day',
+            60 * 60                 =>  'hour',
+            60                      =>  'minute',
+            1                       =>  'second'
+        );
 
         $isNow = $other === null;
 
@@ -758,48 +766,33 @@ class Carbon extends DateTime
         }
 
         $isFuture = $this->gt($other);
+        $deltaTime = abs($other->diffInSeconds($this));
 
-        $delta = abs($other->diffInSeconds($this));
+        if ($deltaTime < 1) {
+            $text = '0 seconds';
+        }
 
-        // 30 days per month, 365 days per year... good enough!!
-        $divs = array(
-            'second' => self::SECONDS_PER_MINUTE,
-            'minute' => self::MINUTES_PER_HOUR,
-            'hour' => self::HOURS_PER_DAY,
-            'day' => 30,
-            'month' => 12
-        );
-
-        $unit = 'year';
-
-        foreach ($divs as $divUnit => $divValue) {
-            if ($delta < $divValue) {
-                $unit = $divUnit;
+        foreach ($intervals as $secs => $str) {
+            $diff = $deltaTime / $secs;
+            if ($diff >= 1) {
+                $diff = round($diff);
+                $text = $diff.' '.$str.($diff > 1 ? 's' : '');
                 break;
             }
-
-            $delta = floor($delta / $divValue);
         }
-
-        if ($delta == 0) {
-            $delta = 1;
-        }
-
-        $txt = $delta . ' ' . $unit;
-        $txt .= $delta == 1 ? '' : 's';
 
         if ($isNow) {
             if ($isFuture) {
-                return $txt . ' from now';
+                return $text.' from now';
             }
 
-            return $txt . ' ago';
+            return $text.' ago';
         }
 
         if ($isFuture) {
-            return $txt . ' after';
+            return $text.' after';
         }
 
-        return $txt . ' before';
+        return $text.' before';
     }
 }

@@ -188,12 +188,12 @@ class DiffTest extends TestFixture
    public function testDiffForHumansNowAndSecond()
    {
       $d = Carbon::now();
-      $this->assertSame('1 second ago', $d->diffForHumans());
+      $this->assertSame('0 seconds ago', $d->diffForHumans());
    }
    public function testDiffForHumansNowAndSecondWithTimezone()
    {
       $d = Carbon::now('America/Vancouver');
-      $this->assertSame('1 second ago', $d->diffForHumans());
+      $this->assertSame('0 seconds ago', $d->diffForHumans());
    }
    public function testDiffForHumansNowAndSeconds()
    {
