@@ -31,6 +31,13 @@ class Carbon extends DateTime
     const MINUTES_PER_HOUR = 60;
     const SECONDS_PER_MINUTE = 60;
 
+    /**
+     * Creates a new DateTimeZone object.  It will throw an exception if an
+     * invalid TimeZone is given.
+     *
+     * @param  mixed $object Either a string rep. of the timezone or a DateTimeZone object
+     * @return DateTimeZone
+     */
     protected static function safeCreateDateTimeZone($object)
     {
         if ($object instanceof DateTimeZone) {
@@ -46,6 +53,12 @@ class Carbon extends DateTime
         return $tz;
     }
 
+    /**
+     * Construct the Object
+     *
+     * @param string $time A date/time string compatible with DateTime::__construct
+     * @param mixed  $tz   Either a DateTimeZone object or a string rep. of the time zone
+     */
     public function __construct($time = null, $tz = null)
     {
         if ($tz !== null) {
@@ -55,27 +68,61 @@ class Carbon extends DateTime
         }
     }
 
+    /**
+     * Creates a new instance using the given DateTime object.
+     *
+     * @param  DateTime $dt The DateTime object to base the instance off of
+     * @return Carbon
+     */
     public static function instance(DateTime $dt)
     {
         return new self($dt->format('Y-m-d H:i:s'), $dt->getTimeZone());
     }
 
+    /**
+     * Creates a new Carbon object set to the current date/time.
+     *
+     * @param  mixed $tz Either a DateTimeZone object or a string rep. of the time zone
+     * @return Carbon
+     */
     public static function now($tz = null)
     {
         return new self(null, $tz);
     }
+
+    /**
+     * Creates a new Carbon object set to the start time of today.
+     *
+     * @param  mixed $tz Either a DateTimeZone object or a string rep. of the time zone
+     * @return Carbon
+     */
     public static function today($tz = null)
     {
-        return Carbon::now($tz)->startOfDay();
+        return self::now($tz)->startOfDay();
     }
+
+    /**
+     * Creates a new Carbon object set to the start time of today.
+     *
+     * @param  mixed $tz Either a DateTimeZone object or a string rep. of the time zone
+     * @return Carbon
+     */
     public static function tomorrow($tz = null)
     {
-        return Carbon::today($tz)->addDay();
+        return self::today($tz)->addDay();
     }
+
+    /**
+     * Creates a new Carbon object set to the start time of yesterday.
+     *
+     * @param  mixed $tz Either a DateTimeZone object or a string rep. of the time zone
+     * @return Carbon
+     */
     public static function yesterday($tz = null)
     {
-        return Carbon::today($tz)->subDay();
+        return self::today($tz)->subDay();
     }
+
     public static function create($year = null, $month = null, $day = null, $hour = null, $minute = null, $second = null, $tz = null)
     {
         $year = ($year === null) ? date('Y') : $year;
@@ -93,14 +140,17 @@ class Carbon extends DateTime
 
         return self::createFromFormat('Y-n-j G:i:s', sprintf('%s-%s-%s %s:%02s:%02s', $year, $month, $day, $hour, $minute, $second), $tz);
     }
+
     public static function createFromDate($year = null, $month = null, $day = null, $tz = null)
     {
         return self::create($year, $month, $day, null, null, null, $tz);
     }
+
     public static function createFromTime($hour = null, $minute = null, $second = null, $tz = null)
     {
         return self::create(null, null, null, $hour, $minute, $second, $tz);
     }
+
     public static function createFromFormat($format, $time, $object = null)
     {
         if ($object !== null) {
@@ -116,10 +166,12 @@ class Carbon extends DateTime
         $errors = DateTime::getLastErrors();
         throw new InvalidArgumentException(implode(PHP_EOL, $errors['errors']));
     }
+
     public static function createFromTimestamp($timestamp, $tz = null)
     {
         return self::now($tz)->setTimestamp($timestamp);
     }
+
     public static function createFromTimestampUTC($timestamp)
     {
         return new self('@'.$timestamp);
@@ -626,14 +678,14 @@ class Carbon extends DateTime
 
     public function diffInYears(Carbon $dt = null, $abs = true)
     {
-        $dt = ($dt === null) ? Carbon::now($this->tz) : $dt;
+        $dt = ($dt === null) ? self::now($this->tz) : $dt;
         $sign = ($abs) ? '' : '%r';
 
         return intval($this->diff($dt)->format($sign.'%y'));
     }
     public function diffInMonths(Carbon $dt = null, $abs = true)
     {
-        $dt = ($dt === null) ? Carbon::now($this->tz) : $dt;
+        $dt = ($dt === null) ? self::now($this->tz) : $dt;
         list($sign, $years, $months) = explode(':', $this->diff($dt)->format('%r:%y:%m'));
         $value = ($years * self::MONTHS_PER_YEAR) + $months;
 
@@ -645,26 +697,26 @@ class Carbon extends DateTime
     }
     public function diffInDays(Carbon $dt = null, $abs = true)
     {
-        $dt = ($dt === null) ? Carbon::now($this->tz) : $dt;
+        $dt = ($dt === null) ? self::now($this->tz) : $dt;
         $sign = ($abs) ? '' : '%r';
 
         return intval($this->diff($dt)->format($sign.'%a'));
     }
     public function diffInHours(Carbon $dt = null, $abs = true)
     {
-        $dt = ($dt === null) ? Carbon::now($this->tz) : $dt;
+        $dt = ($dt === null) ? self::now($this->tz) : $dt;
 
         return intval($this->diffInMinutes($dt, $abs) / self::MINUTES_PER_HOUR);
     }
     public function diffInMinutes(Carbon $dt = null, $abs = true)
     {
-        $dt = ($dt === null) ? Carbon::now($this->tz) : $dt;
+        $dt = ($dt === null) ? self::now($this->tz) : $dt;
 
         return intval($this->diffInSeconds($dt, $abs) / self::SECONDS_PER_MINUTE);
     }
     public function diffInSeconds(Carbon $dt = null, $abs = true)
     {
-        $dt = ($dt === null) ? Carbon::now($this->tz) : $dt;
+        $dt = ($dt === null) ? self::now($this->tz) : $dt;
         list($sign, $days, $hours, $minutes, $seconds) = explode(':', $this->diff($dt)->format('%r:%a:%h:%i:%s'));
         $value = ($days * self::HOURS_PER_DAY * self::MINUTES_PER_HOUR * self::SECONDS_PER_MINUTE) +
                     ($hours * self::MINUTES_PER_HOUR * self::SECONDS_PER_MINUTE) +
