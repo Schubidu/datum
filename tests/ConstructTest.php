@@ -36,9 +36,9 @@ class ConstructTest extends TestFixture
 
    public function testSettingTimezone()
    {
-      $c = new Carbon('now', new \DateTimeZone('Europe/London'));
-      $this->assertSame('Europe/London', $c->tzName);
-      $this->assertSame(0, $c->offsetHours);
+      $c = new Carbon('now', new \DateTimeZone('America/Cayman'));
+      $this->assertSame('America/Cayman', $c->tzName);
+      $this->assertSame(-5, $c->offsetHours);
    }
 
    public function testSettingTimezoneWithString()
