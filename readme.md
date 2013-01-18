@@ -4,6 +4,10 @@
 
 A simple API extension for DateTime with PHP 5.3+
 
+**Datum is a fork of [Carbon](https://github.com/briannesbitt/Carbon) by Brian Nesbitt.**
+
+#### Some Quick Examples
+
 ```php
 <?php
 
@@ -25,11 +29,11 @@ $worldWillEnd = Datum::createFromDate(2012, 12, 21, 'GMT');
 
 // comparisons are always done in UTC
 if (Datum::now()->gte($worldWillEnd)) {
-   die();
+    die();
 }
 
 if (Datum::now()->isWeekend()) {
-   echo 'Party!';
+    echo 'Party!';
 }
 
 echo Datum::now()->subMinutes(2)->diffForHumans(); // '2 minutes ago'
@@ -69,16 +73,9 @@ $daysSinceEpoch = Datum::createFromTimeStamp(0)->diffInDays();
 <a name="install"/>
 ## Installation
 
-<a name="requirements"/>
-### Requirements
+Use [Composer](http://getcomposer.org/).
 
-- Any flavour of PHP 5.3+ should do
-- [optional] PHPUnit to execute the test suite
-
-<a name="install-composer"/>
-### With Composer
-
-The easiest way to install Datum is via [composer](http://getcomposer.org/). Create the following `composer.json` file and run the `php composer.phar install` command to install it.
+Add `dandoescode/datum` to your composer.json:
 
 ```json
 {
@@ -97,24 +94,10 @@ use Datum\Datum;
 printf("Now: %s", Datum::now());
 ```
 
-<a name="install-nocomposer"/>
-### Without Composer
-
-Why are you not using [composer](http://getcomposer.org/)? Download [Datum.php](https://github.com/briannesbitt/Datum/blob/master/Datum/Datum.php) from the repo and save the file into your project path somewhere.
-
-```php
-<?php
-require 'path/to/Datum.php';
-
-use Datum\Datum;
-
-printf("Now: %s", Datum::now());
-```
-
 <a name="api"/>
 ## API
 
-The Datum class is [inherited](http://php.net/manual/en/keyword.extends.php) from the PHP [DateTime](http://www.php.net/manual/en/class.datetime.php) class.
+The Datum class is [inherited](http://php.net/manual/en/keyword.extends.php) from the PHP [DateTime](http://www.php.net/manual/en/class.datetime.php) class and is in the `Datum` namespace.
 
 ```php
 <?php
@@ -128,8 +111,6 @@ class Datum extends \DateTime
 ```
 
 Datum has all of the functions inherited from the base DateTime class.  This approach allows you to access the base functionality if you see anything missing in Datum but is there in DateTime.
-
-> **Note: I live in Ottawa, Ontario, Canada and if the timezone is not specified in the examples then the default of 'America/Toronto' is to be assumed.  Typically Ottawa is -0500 but when daylight savings time is on we are -0400.**
 
 Special care has been taken to ensure timezones are handled correctly, and where appropriate are based on the underlying DateTime implementation.  For example all comparisons are done in UTC or in the timezone of the datetime being used.
 
@@ -572,7 +553,7 @@ The following constants are defined in the Datum class.
 ```php
 $dt = Datum::createFromDate(2012, 10, 6);
 if ($dt->dayOfWeek === Datum::SATURDAY) {
-    echo 'Place bets on Ottawa Senators Winning!';
+     echo 'Place bets on Ottawa Senators Winning!';
 }
 ```
 
