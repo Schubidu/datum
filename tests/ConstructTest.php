@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Carbon package.
+ * This file is part of the Datum package.
  *
  * (c) Brian Nesbitt <brian@nesbot.com>
  *
@@ -9,41 +9,41 @@
  * file that was distributed with this source code.
  */
 
-use Carbon\Carbon;
+use Datum\Datum;
 
 class ConstructTest extends TestFixture
 {
    public function testCreatesAnInstanceDefaultToNow()
    {
-      $c = new Carbon();
-      $now = Carbon::now();
-      $this->assertEquals('Carbon\Carbon', get_class($c));
+      $c = new Datum();
+      $now = Datum::now();
+      $this->assertEquals('Datum\Datum', get_class($c));
       $this->assertEquals($now->tzName, $c->tzName);
-      $this->assertCarbon($c, $now->year, $now->month, $now->day, $now->hour, $now->minute, $now->second);
+      $this->assertDatum($c, $now->year, $now->month, $now->day, $now->hour, $now->minute, $now->second);
    }
 
    public function testWithFancyString()
    {
-      $c = new Carbon('first day of January 2008');
-      $this->assertCarbon($c, 2008, 1, 1, 0, 0, 0);
+      $c = new Datum('first day of January 2008');
+      $this->assertDatum($c, 2008, 1, 1, 0, 0, 0);
    }
 
    public function testDefaultTimezone()
    {
-      $c = new Carbon('now');
+      $c = new Datum('now');
       $this->assertSame('America/Toronto', $c->tzName);
    }
 
    public function testSettingTimezone()
    {
-      $c = new Carbon('now', new \DateTimeZone('America/Cayman'));
+      $c = new Datum('now', new \DateTimeZone('America/Cayman'));
       $this->assertSame('America/Cayman', $c->tzName);
       $this->assertSame(-5, $c->offsetHours);
    }
 
    public function testSettingTimezoneWithString()
    {
-      $c = new Carbon('now', 'Asia/Tokyo');
+      $c = new Datum('now', 'Asia/Tokyo');
       $this->assertSame('Asia/Tokyo', $c->tzName);
       $this->assertSame(9, $c->offsetHours);
    }

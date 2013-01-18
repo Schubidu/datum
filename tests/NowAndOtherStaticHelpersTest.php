@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Carbon package.
+ * This file is part of the Datum package.
  *
  * (c) Brian Nesbitt <brian@nesbot.com>
  *
@@ -9,56 +9,56 @@
  * file that was distributed with this source code.
  */
 
-use Carbon\Carbon;
+use Datum\Datum;
 
 class NowAndOtherStaticHelpersTest extends TestFixture
 {
    public function testNow()
    {
-      $dt = Carbon::now();
+      $dt = Datum::now();
       $this->assertSame(time(), $dt->timestamp);
    }
    public function testNowWithTimezone()
    {
-      $dt = Carbon::now('Europe/London');
+      $dt = Datum::now('Europe/London');
       $this->assertSame(time(), $dt->timestamp);
       $this->assertSame('Europe/London', $dt->tzName);
    }
 
    public function testToday()
    {
-      $dt = Carbon::today();
+      $dt = Datum::today();
       $this->assertSame(date('Y-m-d 00:00:00'), $dt->toDateTimeString());
    }
    public function testTodayWithTimezone()
    {
-      $dt = Carbon::today('Europe/London');
+      $dt = Datum::today('Europe/London');
       $dt2 = new \DateTime('now', new \DateTimeZone('Europe/London'));
       $this->assertSame($dt2->format('Y-m-d 00:00:00'), $dt->toDateTimeString());
    }
 
    public function testTomorrow()
    {
-      $dt = Carbon::tomorrow();
+      $dt = Datum::tomorrow();
       $dt2 = new \DateTime('tomorrow');
       $this->assertSame($dt2->format('Y-m-d 00:00:00'), $dt->toDateTimeString());
    }
    public function testTomorrowWithTimezone()
    {
-      $dt = Carbon::tomorrow('Europe/London');
+      $dt = Datum::tomorrow('Europe/London');
       $dt2 = new \DateTime('tomorrow', new \DateTimeZone('Europe/London'));
       $this->assertSame($dt2->format('Y-m-d 00:00:00'), $dt->toDateTimeString());
    }
 
    public function testYesterday()
    {
-      $dt = Carbon::yesterday();
+      $dt = Datum::yesterday();
       $dt2 = new \DateTime('yesterday');
       $this->assertSame($dt2->format('Y-m-d 00:00:00'), $dt->toDateTimeString());
    }
    public function testYesterdayWithTimezone()
    {
-      $dt = Carbon::yesterday('Europe/London');
+      $dt = Datum::yesterday('Europe/London');
       $dt2 = new \DateTime('yesterday', new \DateTimeZone('Europe/London'));
       $this->assertSame($dt2->format('Y-m-d 00:00:00'), $dt->toDateTimeString());
    }

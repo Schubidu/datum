@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Carbon package.
+ * This file is part of the Datum package.
  *
  * (c) Brian Nesbitt <brian@nesbot.com>
  *
@@ -11,7 +11,7 @@
 
 require __DIR__.'/../vendor/autoload.php';
 
-use Carbon\Carbon;
+use Datum\Datum;
 
 class TestFixture extends \PHPUnit_Framework_TestCase
 {
@@ -30,22 +30,22 @@ class TestFixture extends \PHPUnit_Framework_TestCase
       date_default_timezone_set($this->saveTz);
    }
 
-   protected function assertCarbon(Carbon $d, $year, $month, $day, $hour = null, $minute = null, $second = null)
+   protected function assertDatum(Datum $d, $year, $month, $day, $hour = null, $minute = null, $second = null)
    {
-      $this->assertSame($year, $d->year, 'Carbon->year');
-      $this->assertSame($month, $d->month, 'Carbon->month');
-      $this->assertSame($day, $d->day, 'Carbon->day');
+      $this->assertSame($year, $d->year, 'Datum->year');
+      $this->assertSame($month, $d->month, 'Datum->month');
+      $this->assertSame($day, $d->day, 'Datum->day');
 
       if ($hour !== null) {
-         $this->assertSame($hour, $d->hour, 'Carbon->hour');
+         $this->assertSame($hour, $d->hour, 'Datum->hour');
       }
 
       if ($minute !== null) {
-         $this->assertSame($minute, $d->minute, 'Carbon->minute');
+         $this->assertSame($minute, $d->minute, 'Datum->minute');
       }
 
       if ($second !== null) {
-         $this->assertSame($second, $d->second, 'Carbon->second');
+         $this->assertSame($second, $d->second, 'Datum->second');
       }
    }
 }

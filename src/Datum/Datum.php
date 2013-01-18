@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Carbon package.
+ * This file is part of the Datum package.
  *
  * (c) Brian Nesbitt <brian@nesbot.com>
  *
@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Carbon;
+namespace Datum;
 
 use DateTime;
 use DateInterval;
 use DateTimeZone;
 use InvalidArgumentException;
 
-class Carbon extends DateTime
+class Datum extends DateTime
 {
     const SUNDAY = 0;
     const MONDAY = 1;
@@ -72,7 +72,7 @@ class Carbon extends DateTime
      * Creates a new instance using the given DateTime object.
      *
      * @param  DateTime $dt The DateTime object to base the instance off of
-     * @return Carbon
+     * @return Datum
      */
     public static function instance(DateTime $dt)
     {
@@ -80,10 +80,10 @@ class Carbon extends DateTime
     }
 
     /**
-     * Creates a new Carbon object set to the current date/time.
+     * Creates a new Datum object set to the current date/time.
      *
      * @param  mixed $tz Either a DateTimeZone object or a string rep. of the time zone
-     * @return Carbon
+     * @return Datum
      */
     public static function now($tz = null)
     {
@@ -91,10 +91,10 @@ class Carbon extends DateTime
     }
 
     /**
-     * Creates a new Carbon object set to the start time of today.
+     * Creates a new Datum object set to the start time of today.
      *
      * @param  mixed $tz Either a DateTimeZone object or a string rep. of the time zone
-     * @return Carbon
+     * @return Datum
      */
     public static function today($tz = null)
     {
@@ -102,10 +102,10 @@ class Carbon extends DateTime
     }
 
     /**
-     * Creates a new Carbon object set to the start time of today.
+     * Creates a new Datum object set to the start time of today.
      *
      * @param  mixed $tz Either a DateTimeZone object or a string rep. of the time zone
-     * @return Carbon
+     * @return Datum
      */
     public static function tomorrow($tz = null)
     {
@@ -113,10 +113,10 @@ class Carbon extends DateTime
     }
 
     /**
-     * Creates a new Carbon object set to the start time of yesterday.
+     * Creates a new Datum object set to the start time of yesterday.
      *
      * @param  mixed $tz Either a DateTimeZone object or a string rep. of the time zone
-     * @return Carbon
+     * @return Datum
      */
     public static function yesterday($tz = null)
     {
@@ -124,7 +124,7 @@ class Carbon extends DateTime
     }
 
     /**
-     * Creates a new Carbon object with the given date/time information
+     * Creates a new Datum object with the given date/time information
      *
      * @param  int   $year   The year
      * @param  int   $month  The month
@@ -133,7 +133,7 @@ class Carbon extends DateTime
      * @param  int   $minute The minute
      * @param  int   $second The seconds
      * @param  mixed $tz     Either a DateTimeZone object or a string rep. of the time zone
-     * @return Carbon
+     * @return Datum
      */
     public static function create($year = null, $month = null, $day = null, $hour = null, $minute = null, $second = null, $tz = null)
     {
@@ -154,12 +154,12 @@ class Carbon extends DateTime
     }
 
     /**
-     * Creates a new Carbon object with the given date information
+     * Creates a new Datum object with the given date information
      *
      * @param  int   $year   The year
      * @param  int   $month  The month
      * @param  int   $day    The day
-     * @return Carbon
+     * @return Datum
      */
     public static function createFromDate($year = null, $month = null, $day = null, $tz = null)
     {
@@ -167,13 +167,13 @@ class Carbon extends DateTime
     }
 
     /**
-     * Creates a new Carbon object with the given time information
+     * Creates a new Datum object with the given time information
      *
      * @param  int   $hour   The hour
      * @param  int   $minute The minute
      * @param  int   $second The seconds
      * @param  mixed $tz     Either a DateTimeZone object or a string rep. of the time zone
-     * @return Carbon
+     * @return Datum
      */
     public static function createFromTime($hour = null, $minute = null, $second = null, $tz = null)
     {
@@ -181,12 +181,12 @@ class Carbon extends DateTime
     }
 
     /**
-     * Creates a new Carbon object from the given valid date/time format.
+     * Creates a new Datum object from the given valid date/time format.
      *
      * @param  string $format The date/time format
      * @param  string $time   String representation of the date/time
      * @param  mixed  $tz     Either a DateTimeZone object or a string rep. of the time zone
-     * @return Carbon
+     * @return Datum
      */
     public static function createFromFormat($format, $time, $tz = null)
     {
@@ -205,11 +205,11 @@ class Carbon extends DateTime
     }
 
     /**
-     * Creates a new Carbon object from the given timestamp and timezone.
+     * Creates a new Datum object from the given timestamp and timezone.
      *
      * @param  int   $timestamp The timestamp
      * @param  mixed $tz        Either a DateTimeZone object or a string rep. of the time zone
-     * @return Carbon
+     * @return Datum
      */
     public static function createFromTimestamp($timestamp, $tz = null)
     {
@@ -217,10 +217,10 @@ class Carbon extends DateTime
     }
 
     /**
-     * Creates a new Carbon object from a given UTC Timestamp.
+     * Creates a new Datum object from a given UTC Timestamp.
      *
      * @param  int $timestamp The UTC timestamp
-     * @return Carbon
+     * @return Datum
      */
     public static function createFromTimestampUTC($timestamp)
     {
@@ -228,9 +228,9 @@ class Carbon extends DateTime
     }
 
     /**
-     * Creates a copy of the Carbon object.
+     * Creates a copy of the Datum object.
      *
-     * @return Carbon
+     * @return Datum
      */
     public function copy()
     {
@@ -354,7 +354,7 @@ class Carbon extends DateTime
      * Sets the year and allows you to chain.
      *
      * @param  int $value The value to set
-     * @return Carbon
+     * @return Datum
      */
     public function year($value)
     {
@@ -367,7 +367,7 @@ class Carbon extends DateTime
      * Sets the month and allows you to chain.
      *
      * @param  int $value The value to set
-     * @return Carbon
+     * @return Datum
      */
     public function month($value)
     {
@@ -380,7 +380,7 @@ class Carbon extends DateTime
      * Sets the day and allows you to chain.
      *
      * @param  int $value The value to set
-     * @return Carbon
+     * @return Datum
      */
     public function day($value)
     {
@@ -395,7 +395,7 @@ class Carbon extends DateTime
      * @param  int $year  The year
      * @param  int $month The month
      * @param  int $day   The day
-     * @return Carbon
+     * @return Datum
      */
     public function setDate($year, $month, $day)
     {
@@ -406,7 +406,7 @@ class Carbon extends DateTime
      * Sets the hour and allows you to chain.
      *
      * @param  int $value The value to set
-     * @return Carbon
+     * @return Datum
      */
     public function hour($value)
     {
@@ -419,7 +419,7 @@ class Carbon extends DateTime
      * Sets the minute and allows you to chain.
      *
      * @param  int $value The value to set
-     * @return Carbon
+     * @return Datum
      */
     public function minute($value)
     {
@@ -432,7 +432,7 @@ class Carbon extends DateTime
      * Sets the second and allows you to chain.
      *
      * @param  int $value The value to set
-     * @return Carbon
+     * @return Datum
      */
     public function second($value)
     {
@@ -447,7 +447,7 @@ class Carbon extends DateTime
      * @param  int $hour   The hour
      * @param  int $minute The minute
      * @param  int $second The second
-     * @return Carbon
+     * @return Datum
      */
     public function setTime($hour, $minute, $second = 0)
     {
@@ -464,7 +464,7 @@ class Carbon extends DateTime
      * @param  int $hour   The hour
      * @param  int $minute The minute
      * @param  int $second The second
-     * @return Carbon
+     * @return Datum
      */
     public function setDateTime($year, $month, $day, $hour, $minute, $second)
     {
@@ -475,7 +475,7 @@ class Carbon extends DateTime
      * Sets the timestamp.
      *
      * @param  int $value The timestamp
-     * @return Carbon
+     * @return Datum
      */
     public function timestamp($value)
     {
@@ -488,7 +488,7 @@ class Carbon extends DateTime
      * Alias for setTimezone.
      *
      * @param  mixed $value Either a DateTimeZone object or a string rep. of the time zone
-     * @return Carbon
+     * @return Datum
      */
     public function timezone($value)
     {
@@ -499,7 +499,7 @@ class Carbon extends DateTime
      * Alias for setTimezone.
      *
      * @param  mixed $value Either a DateTimeZone object or a string rep. of the time zone
-     * @return Carbon
+     * @return Datum
      */
     public function tz($value)
     {
@@ -510,7 +510,7 @@ class Carbon extends DateTime
      * Sets the Time Zone to given time zone.
      *
      * @param  mixed $value Either a DateTimeZone object or a string rep. of the time zone
-     * @return Carbon
+     * @return Datum
      */
     public function setTimezone($value)
     {
@@ -724,73 +724,73 @@ class Carbon extends DateTime
     }
 
     /**
-     * Checks if this Carbon object is less equal to the given
+     * Checks if this Datum object is less equal to the given
      * object.
      *
-     * @param  Carbon $dt The object to compare
+     * @param  Datum $dt The object to compare
      * @return boolean
      */
-    public function eq(Carbon $dt)
+    public function eq(Datum $dt)
     {
         return $this == $dt;
     }
 
     /**
-     * Checks if this Carbon object is not equal to the given
+     * Checks if this Datum object is not equal to the given
      * object.
      *
-     * @param  Carbon $dt The object to compare
+     * @param  Datum $dt The object to compare
      * @return boolean
      */
-    public function ne(Carbon $dt)
+    public function ne(Datum $dt)
     {
         return ( ! $this->eq($dt));
     }
 
     /**
-     * Checks if this Carbon object is greater than to the given
+     * Checks if this Datum object is greater than to the given
      * object.
      *
-     * @param  Carbon $dt The object to compare
+     * @param  Datum $dt The object to compare
      * @return boolean
      */
-    public function gt(Carbon $dt)
+    public function gt(Datum $dt)
     {
         return $this > $dt;
     }
 
     /**
-     * Checks if this Carbon object is greater than or equal to the given
+     * Checks if this Datum object is greater than or equal to the given
      * object.
      *
-     * @param  Carbon $dt The object to compare
+     * @param  Datum $dt The object to compare
      * @return boolean
      */
-    public function gte(Carbon $dt)
+    public function gte(Datum $dt)
     {
         return $this >= $dt;
     }
 
     /**
-     * Checks if this Carbon object is less than to the given
+     * Checks if this Datum object is less than to the given
      * object.
      *
-     * @param  Carbon $dt The object to compare
+     * @param  Datum $dt The object to compare
      * @return boolean
      */
-    public function lt(Carbon $dt)
+    public function lt(Datum $dt)
     {
         return $this < $dt;
     }
 
     /**
-     * Checks if this Carbon object is less than or equal to the given
+     * Checks if this Datum object is less than or equal to the given
      * object.
      *
-     * @param  Carbon $dt The object to compare
+     * @param  Datum $dt The object to compare
      * @return boolean
      */
-    public function lte(Carbon $dt)
+    public function lte(Datum $dt)
     {
         return $this <= $dt;
     }
@@ -879,7 +879,7 @@ class Carbon extends DateTime
      * Adds the given amount of years to the date
      *
      * @param  int $value The number of years to add
-     * @return Carbon
+     * @return Datum
      */
     public function addYears($value)
     {
@@ -896,7 +896,7 @@ class Carbon extends DateTime
     /**
      * Adds 1 year to the date
      *
-     * @return Carbon
+     * @return Datum
      */
     public function addYear()
     {
@@ -906,7 +906,7 @@ class Carbon extends DateTime
     /**
      * Subtracts 1 year from the date
      *
-     * @return Carbon
+     * @return Datum
      */
     public function subYear()
     {
@@ -917,7 +917,7 @@ class Carbon extends DateTime
      * Subtracts the given amount of years from the date
      *
      * @param  int $value The number of years to subtract
-     * @return Carbon
+     * @return Datum
      */
     public function subYears($value)
     {
@@ -928,7 +928,7 @@ class Carbon extends DateTime
      * Adds the given amount of months to the date
      *
      * @param  int $value The number of months to add
-     * @return Carbon
+     * @return Datum
      */
     public function addMonths($value)
     {
@@ -945,7 +945,7 @@ class Carbon extends DateTime
     /**
      * Adds 1 month to the date
      *
-     * @return Carbon
+     * @return Datum
      */
     public function addMonth()
     {
@@ -955,7 +955,7 @@ class Carbon extends DateTime
     /**
      * Subtracts 1 month from the date
      *
-     * @return Carbon
+     * @return Datum
      */
     public function subMonth()
     {
@@ -966,7 +966,7 @@ class Carbon extends DateTime
      * Subtracts the given amount of months from the date
      *
      * @param  int $value The number of months to subtract
-     * @return Carbon
+     * @return Datum
      */
     public function subMonths($value)
     {
@@ -977,7 +977,7 @@ class Carbon extends DateTime
      * Adds the given amount of days to the date
      *
      * @param  int $value The number of days to add
-     * @return Carbon
+     * @return Datum
      */
     public function addDays($value)
     {
@@ -994,7 +994,7 @@ class Carbon extends DateTime
     /**
      * Adds 1 day to the date
      *
-     * @return Carbon
+     * @return Datum
      */
     public function addDay()
     {
@@ -1004,7 +1004,7 @@ class Carbon extends DateTime
     /**
      * Subtracts 1 day from the date
      *
-     * @return Carbon
+     * @return Datum
      */
     public function subDay()
     {
@@ -1015,7 +1015,7 @@ class Carbon extends DateTime
      * Subtracts the given amount of days from the date
      *
      * @param  int $value The number of days to subtract
-     * @return Carbon
+     * @return Datum
      */
     public function subDays($value)
     {
@@ -1026,7 +1026,7 @@ class Carbon extends DateTime
      * Adds the given amount of weekdays to the date
      *
      * @param  int $value The number of weekdays to add
-     * @return Carbon
+     * @return Datum
      */
     public function addWeekdays($value)
     {
@@ -1049,7 +1049,7 @@ class Carbon extends DateTime
     /**
      * Adds 1 weekday to the date
      *
-     * @return Carbon
+     * @return Datum
      */
     public function addWeekday()
     {
@@ -1059,7 +1059,7 @@ class Carbon extends DateTime
     /**
      * Subtracts 1 weekday from the date
      *
-     * @return Carbon
+     * @return Datum
      */
     public function subWeekday()
     {
@@ -1070,7 +1070,7 @@ class Carbon extends DateTime
      * Subtracts the given amount of weekdays from the date
      *
      * @param  int $value The number of weekdays to subtract
-     * @return Carbon
+     * @return Datum
      */
     public function subWeekdays($value)
     {
@@ -1081,7 +1081,7 @@ class Carbon extends DateTime
      * Adds the given amount of weeks to the date
      *
      * @param  int $value The number of weeks to add
-     * @return Carbon
+     * @return Datum
      */
     public function addWeeks($value)
     {
@@ -1098,7 +1098,7 @@ class Carbon extends DateTime
     /**
      * Adds 1 weeks to the date
      *
-     * @return Carbon
+     * @return Datum
      */
     public function addWeek()
     {
@@ -1108,7 +1108,7 @@ class Carbon extends DateTime
     /**
      * Subtracts 1 week from the date
      *
-     * @return Carbon
+     * @return Datum
      */
     public function subWeek()
     {
@@ -1119,7 +1119,7 @@ class Carbon extends DateTime
      * Subtracts the given amount of weeks from the date
      *
      * @param  int $value The number of weeks to subtract
-     * @return Carbon
+     * @return Datum
      */
     public function subWeeks($value)
     {
@@ -1130,7 +1130,7 @@ class Carbon extends DateTime
      * Adds the given amount of hours to the time
      *
      * @param  int $value The number of hours to add
-     * @return Carbon
+     * @return Datum
      */
     public function addHours($value)
     {
@@ -1147,7 +1147,7 @@ class Carbon extends DateTime
     /**
      * Adds 1 hour from the time
      *
-     * @return Carbon
+     * @return Datum
      */
     public function addHour()
     {
@@ -1157,7 +1157,7 @@ class Carbon extends DateTime
     /**
      * Subtracts 1 hour from the time
      *
-     * @return Carbon
+     * @return Datum
      */
    public function subHour()
     {
@@ -1168,7 +1168,7 @@ class Carbon extends DateTime
      * Subtracts the given amount of hours from the time
      *
      * @param  int $value The number of hours to subtract
-     * @return Carbon
+     * @return Datum
      */
     public function subHours($value)
     {
@@ -1179,7 +1179,7 @@ class Carbon extends DateTime
      * Adds the given amount of minutes to the time
      *
      * @param  int $value The number of minutes to add
-     * @return Carbon
+     * @return Datum
      */
     public function addMinutes($value)
     {
@@ -1196,7 +1196,7 @@ class Carbon extends DateTime
     /**
      * Adds 1 minute to the time.
      *
-     * @return Carbon
+     * @return Datum
      */
     public function addMinute()
     {
@@ -1206,7 +1206,7 @@ class Carbon extends DateTime
     /**
      * Subtracts 1 minute from the time.
      *
-     * @return Carbon
+     * @return Datum
      */
     public function subMinute()
     {
@@ -1217,7 +1217,7 @@ class Carbon extends DateTime
      * Subtracts the given amount of minutes from the time
      *
      * @param  int $value The number of minutes to subtract
-     * @return Carbon
+     * @return Datum
      */
     public function subMinutes($value)
     {
@@ -1228,7 +1228,7 @@ class Carbon extends DateTime
      * Adds the given amount of seconds to the time.
      *
      * @param  int $value The number of seconds to add
-     * @return Carbon
+     * @return Datum
      */
     public function addSeconds($value)
     {
@@ -1245,7 +1245,7 @@ class Carbon extends DateTime
     /**
      * Adds 1 second to the time.
      *
-     * @return Carbon
+     * @return Datum
      */
     public function addSecond()
     {
@@ -1255,7 +1255,7 @@ class Carbon extends DateTime
     /**
      * Subtracts 1 second from the time.
      *
-     * @return Carbon
+     * @return Datum
      */
     public function subSecond()
     {
@@ -1266,7 +1266,7 @@ class Carbon extends DateTime
      * Subtracts the given amount of seconds from the time.
      *
      * @param  int $value Number of seconds to subtract
-     * @return Carbon
+     * @return Datum
      */
     public function subSeconds($value)
     {
@@ -1276,7 +1276,7 @@ class Carbon extends DateTime
     /**
      * Sets the time to 00:00:00
      *
-     * @return Carbon
+     * @return Datum
      */
     public function startOfDay()
     {
@@ -1286,7 +1286,7 @@ class Carbon extends DateTime
     /**
      * Sets the time to 23:59:59
      *
-     * @return Carbon
+     * @return Datum
      */
     public function endOfDay()
     {
@@ -1296,7 +1296,7 @@ class Carbon extends DateTime
     /**
      * Sets the date to the start of the first day of the current month.
      *
-     * @return Carbon
+     * @return Datum
      */
     public function startOfMonth()
     {
@@ -1306,7 +1306,7 @@ class Carbon extends DateTime
     /**
      * Sets the date to the end of the last day of the current month.
      *
-     * @return Carbon
+     * @return Datum
      */
     public function endOfMonth()
     {
@@ -1314,14 +1314,14 @@ class Carbon extends DateTime
     }
 
     /**
-     * Gets the diff in years between this Carbon object and the given one.  If one is not given
+     * Gets the diff in years between this Datum object and the given one.  If one is not given
      * then it will use the current date/time.
      *
-     * @param  Carbon  $dt  The object to compare
+     * @param  Datum  $dt  The object to compare
      * @param  boolean $abs Whether to abs() the diff
      * @return int
      */
-    public function diffInYears(Carbon $dt = null, $abs = true)
+    public function diffInYears(Datum $dt = null, $abs = true)
     {
         $dt = ($dt === null) ? self::now($this->tz) : $dt;
         $sign = ($abs) ? '' : '%r';
@@ -1330,14 +1330,14 @@ class Carbon extends DateTime
     }
 
     /**
-     * Gets the diff in months between this Carbon object and the given one.  If one is not given
+     * Gets the diff in months between this Datum object and the given one.  If one is not given
      * then it will use the current date/time.
      *
-     * @param  Carbon  $dt  The object to compare
+     * @param  Datum  $dt  The object to compare
      * @param  boolean $abs Whether to abs() the diff
      * @return int
      */
-    public function diffInMonths(Carbon $dt = null, $abs = true)
+    public function diffInMonths(Datum $dt = null, $abs = true)
     {
         $dt = ($dt === null) ? self::now($this->tz) : $dt;
         list($sign, $years, $months) = explode(':', $this->diff($dt)->format('%r:%y:%m'));
@@ -1351,14 +1351,14 @@ class Carbon extends DateTime
     }
 
     /**
-     * Gets the diff in days between this Carbon object and the given one.  If one is not given
+     * Gets the diff in days between this Datum object and the given one.  If one is not given
      * then it will use the current date/time.
      *
-     * @param  Carbon  $dt  The object to compare
+     * @param  Datum  $dt  The object to compare
      * @param  boolean $abs Whether to abs() the diff
      * @return int
      */
-    public function diffInDays(Carbon $dt = null, $abs = true)
+    public function diffInDays(Datum $dt = null, $abs = true)
     {
         $dt = ($dt === null) ? self::now($this->tz) : $dt;
         $sign = ($abs) ? '' : '%r';
@@ -1367,14 +1367,14 @@ class Carbon extends DateTime
     }
 
     /**
-     * Gets the diff in hours between this Carbon object and the given one.  If one is not given
+     * Gets the diff in hours between this Datum object and the given one.  If one is not given
      * then it will use the current date/time.
      *
-     * @param  Carbon  $dt  The object to compare
+     * @param  Datum  $dt  The object to compare
      * @param  boolean $abs Whether to abs() the diff
      * @return int
      */
-    public function diffInHours(Carbon $dt = null, $abs = true)
+    public function diffInHours(Datum $dt = null, $abs = true)
     {
         $dt = ($dt === null) ? self::now($this->tz) : $dt;
 
@@ -1382,14 +1382,14 @@ class Carbon extends DateTime
     }
 
     /**
-     * Gets the diff in minutes between this Carbon object and the given one.  If one is not given
+     * Gets the diff in minutes between this Datum object and the given one.  If one is not given
      * then it will use the current date/time.
      *
-     * @param  Carbon  $dt  The object to compare
+     * @param  Datum  $dt  The object to compare
      * @param  boolean $abs Whether to abs() the diff
      * @return int
      */
-    public function diffInMinutes(Carbon $dt = null, $abs = true)
+    public function diffInMinutes(Datum $dt = null, $abs = true)
     {
         $dt = ($dt === null) ? self::now($this->tz) : $dt;
 
@@ -1397,14 +1397,14 @@ class Carbon extends DateTime
     }
 
     /**
-     * Gets the diff in second between this Carbon object and the given one.  If one is not given
+     * Gets the diff in second between this Datum object and the given one.  If one is not given
      * then it will use the current date/time.
      *
-     * @param  Carbon  $dt  The object to compare
+     * @param  Datum  $dt  The object to compare
      * @param  boolean $abs Whether to abs() the diff
      * @return int
      */
-    public function diffInSeconds(Carbon $dt = null, $abs = true)
+    public function diffInSeconds(Datum $dt = null, $abs = true)
     {
         $dt = ($dt === null) ? self::now($this->tz) : $dt;
         list($sign, $days, $hours, $minutes, $seconds) = explode(':', $this->diff($dt)->format('%r:%a:%h:%i:%s'));
@@ -1430,10 +1430,10 @@ class Carbon extends DateTime
      *     1 hour after
      *     1 hour before
      *
-     * @param  Carbon $other The date to compare
+     * @param  Datum $other The date to compare
      * @return string
      */
-    public function diffForHumans(Carbon $other = null)
+    public function diffForHumans(Datum $other = null)
     {
         $text = '';
         $intervals = array(

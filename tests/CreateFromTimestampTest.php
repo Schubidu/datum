@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Carbon package.
+ * This file is part of the Datum package.
  *
  * (c) Brian Nesbitt <brian@nesbot.com>
  *
@@ -9,19 +9,19 @@
  * file that was distributed with this source code.
  */
 
-use Carbon\Carbon;
+use Datum\Datum;
 
 class CreateFromTimestampTest extends TestFixture
 {
    public function testCreateReturnsDatingInstance()
    {
-      $d = Carbon::createFromTimestamp(Carbon::create(1975, 5, 21, 22, 32, 5)->timestamp);
-      $this->assertCarbon($d, 1975, 5, 21, 22, 32, 5);
+      $d = Datum::createFromTimestamp(Datum::create(1975, 5, 21, 22, 32, 5)->timestamp);
+      $this->assertDatum($d, 1975, 5, 21, 22, 32, 5);
    }
 
    public function testCreateFromTimestampUsesDefaultTimezone()
    {
-      $d = Carbon::createFromTimestamp(0);
+      $d = Datum::createFromTimestamp(0);
 
       // We know Toronto is -5 since no DST in Jan
       $this->assertSame(1969, $d->year);
@@ -30,22 +30,22 @@ class CreateFromTimestampTest extends TestFixture
 
    public function testCreateFromTimestampWithDateTimeZone()
    {
-      $d = Carbon::createFromTimestamp(0, new \DateTimeZone('UTC'));
+      $d = Datum::createFromTimestamp(0, new \DateTimeZone('UTC'));
       $this->assertSame('UTC', $d->tzName);
-      $this->assertCarbon($d, 1970, 1, 1, 0, 0, 0);
+      $this->assertDatum($d, 1970, 1, 1, 0, 0, 0);
    }
    public function testCreateFromTimestampWithString()
    {
-      $d = Carbon::createFromTimestamp(0, 'UTC');
-      $this->assertCarbon($d, 1970, 1, 1, 0, 0, 0);
+      $d = Datum::createFromTimestamp(0, 'UTC');
+      $this->assertDatum($d, 1970, 1, 1, 0, 0, 0);
       $this->assertTrue($d->offset === 0);
       $this->assertSame('UTC', $d->tzName);
    }
 
    public function testCreateFromTimestampGMTDoesNotUseDefaultTimezone()
    {
-      $d = Carbon::createFromTimestampUTC(0);
-      $this->assertCarbon($d, 1970, 1, 1, 0, 0, 0);
+      $d = Datum::createFromTimestampUTC(0);
+      $this->assertDatum($d, 1970, 1, 1, 0, 0, 0);
       $this->assertTrue($d->offset === 0);
    }
 }

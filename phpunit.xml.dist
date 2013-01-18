@@ -2,7 +2,7 @@
 
 <phpunit colors="true" bootstrap="tests/TestFixture.php">
    <testsuites>
-      <testsuite name="Carbon Test Suite">
+      <testsuite name="Datum Test Suite">
          <directory>tests/</directory>
       </testsuite>
    </testsuites>

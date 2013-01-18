@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Carbon package.
+ * This file is part of the Datum package.
  *
  * (c) Brian Nesbitt <brian@nesbot.com>
  *
@@ -9,19 +9,19 @@
  * file that was distributed with this source code.
  */
 
-use Carbon\Carbon;
+use Datum\Datum;
 
 class IssetTest extends TestFixture
 {
     public function testIssetReturnFalseForUnknownProperty()
     {
-        $this->assertFalse(isset(Carbon::create(1234, 5, 6, 7, 8, 9)->sdfsdfss));
+        $this->assertFalse(isset(Datum::create(1234, 5, 6, 7, 8, 9)->sdfsdfss));
     }
     public function testIssetReturnTrueForProperties()
     {
         $properties = array('year', 'month', 'day', 'hour', 'minute', 'second', 'dayOfWeek', 'dayOfYear', 'daysInMonth', 'timestamp', 'age', 'quarter', 'dst', 'offset', 'offsetHours', 'timezone', 'timezoneName', 'tz', 'tzName');
         foreach ($properties as $property) {
-            $this->assertTrue(isset(Carbon::create(1234, 5, 6, 7, 8, 9)->$property));
+            $this->assertTrue(isset(Datum::create(1234, 5, 6, 7, 8, 9)->$property));
         }
     }
 }

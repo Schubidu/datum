@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the Carbon package.
+ * This file is part of the Datum package.
  *
  * (c) Brian Nesbitt <brian@nesbot.com>
  *
@@ -8,17 +8,17 @@
  * file that was distributed with this source code.
  */
 
-require 'Carbon/Carbon.php';
+require 'Datum/Datum.php';
 
-use Carbon\Carbon;
+use Datum\Datum;
 
 date_default_timezone_set('America/Toronto');
 
 $readme = file_get_contents('readme.src.md');
 
-$pre_src = 'use Carbon\Carbon; ';
+$pre_src = 'use Datum\Datum; ';
 
-//   {{intro::exec(echo Carbon::now()->subMinutes(2)->diffForHumans();)}}
+//   {{intro::exec(echo Datum::now()->subMinutes(2)->diffForHumans();)}}
 preg_match_all('@{{(\w*)::(\w+)\((.+)\)}}@sU', $readme, $matches, PREG_SET_ORDER);
 
 foreach ($matches as $match) {

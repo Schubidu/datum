@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Carbon package.
+ * This file is part of the Datum package.
  *
  * (c) Brian Nesbitt <brian@nesbot.com>
  *
@@ -9,52 +9,52 @@
  * file that was distributed with this source code.
  */
 
-use Carbon\Carbon;
+use Datum\Datum;
 
 class StartEndOfTest extends TestFixture
 {
    public function testStartOfDay()
    {
-      $dt = Carbon::now();
-      $this->assertTrue($dt->startOfDay() instanceof Carbon);
-      $this->assertCarbon($dt, $dt->year, $dt->month, $dt->day, 0, 0, 0);
+      $dt = Datum::now();
+      $this->assertTrue($dt->startOfDay() instanceof Datum);
+      $this->assertDatum($dt, $dt->year, $dt->month, $dt->day, 0, 0, 0);
    }
    public function testEndOfDay()
    {
-      $dt = Carbon::now();
-      $this->assertTrue($dt->endOfDay() instanceof Carbon);
-      $this->assertCarbon($dt, $dt->year, $dt->month, $dt->day, 23, 59, 59);
+      $dt = Datum::now();
+      $this->assertTrue($dt->endOfDay() instanceof Datum);
+      $this->assertDatum($dt, $dt->year, $dt->month, $dt->day, 23, 59, 59);
    }
 
    public function testStartOfMonthIsFluid()
    {
-      $dt = Carbon::now();
-      $this->assertTrue($dt->startOfMonth() instanceof Carbon);
+      $dt = Datum::now();
+      $this->assertTrue($dt->startOfMonth() instanceof Datum);
    }
    public function testStartOfMonthFromNow()
    {
-      $dt = Carbon::now()->startOfMonth();
-      $this->assertCarbon($dt, $dt->year, $dt->month, 1, 0, 0, 0);
+      $dt = Datum::now()->startOfMonth();
+      $this->assertDatum($dt, $dt->year, $dt->month, 1, 0, 0, 0);
    }
    public function testStartOfMonthFromLastDay()
    {
-      $dt = Carbon::create(2000, 1, 31, 2, 3, 4)->startOfMonth();
-      $this->assertCarbon($dt, 2000, 1, 1, 0, 0, 0);
+      $dt = Datum::create(2000, 1, 31, 2, 3, 4)->startOfMonth();
+      $this->assertDatum($dt, 2000, 1, 1, 0, 0, 0);
    }
 
    public function testEndOfMonthIsFluid()
    {
-      $dt = Carbon::now();
-      $this->assertTrue($dt->endOfMonth() instanceof Carbon);
+      $dt = Datum::now();
+      $this->assertTrue($dt->endOfMonth() instanceof Datum);
    }
    public function testEndOfMonth()
    {
-      $dt = Carbon::create(2000, 1, 1, 2, 3, 4)->endOfMonth();
-      $this->assertCarbon($dt, 2000, 1, 31, 23, 59, 59);
+      $dt = Datum::create(2000, 1, 1, 2, 3, 4)->endOfMonth();
+      $this->assertDatum($dt, 2000, 1, 31, 23, 59, 59);
    }
    public function testEndOfMonthFromLastDay()
    {
-      $dt = Carbon::create(2000, 1, 31, 2, 3, 4)->endOfMonth();
-      $this->assertCarbon($dt, 2000, 1, 31, 23, 59, 59);
+      $dt = Datum::create(2000, 1, 31, 2, 3, 4)->endOfMonth();
+      $this->assertDatum($dt, 2000, 1, 31, 23, 59, 59);
    }
 }
