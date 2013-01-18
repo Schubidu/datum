@@ -4,6 +4,8 @@
 
 A simple API extension for DateTime with PHP 5.3+
 
+Current Version: 1.0.0
+
 **Datum is a fork of [Carbon](https://github.com/briannesbitt/Carbon) by Brian Nesbitt.**
 
 #### Some Quick Examples
@@ -80,7 +82,7 @@ Add `dandoescode/datum` to your composer.json:
 ```json
 {
     "require": {
-        "dandoescode/datum": "*"
+        "dandoescode/datum": "1.0.*"
     }
 }
 ```

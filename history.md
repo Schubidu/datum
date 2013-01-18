@@ -1,34 +1,8 @@
-1.3.0
-==================
-  * Library name changed from Carbon to Datum
-  * `diffForHumans` now works properly
-  * Added DocBlocks and reformatted all code.
-  * Fixed some tests
-
-1.2.0 / 2012-10-14
+1.0.0
 ==================
 
-  * Added history.md
-  * Implemented __isset() (thanks @flevour)
-  * Simplified tomorrow()/yesterday() to rely on today()... more DRY
-  * Simplified __set() and fixed exception text
-  * Updated readme
-
-1.1.0 / 2012-09-16
-==================
-
-  * Updated composer.json
-  * Added better error messaging for failed readme generation
-  * Fixed readme typos
-  * Added static helpers `today()`, `tomorrow()`, `yesterday()`
-  * Simplified `now()` code
-
-1.0.1 / 2012-09-10
-==================
-
-  * Added travis-ci.org
-
-1.0.0 / 2012-09-10
-==================
-
-  * Initial release
+* Forked [Carbon](https://github.com/dandoescode/datum)
+* Library name changed from Carbon to Datum
+* `diffForHumans` now works properly
+* Added DocBlocks and reformatted all code.
+* Fixed some tests
