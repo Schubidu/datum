@@ -1,3 +1,10 @@
+1.3.0
+==================
+  * Library name changed from Carbon to Datum
+  * `diffForHumans` now works properly
+  * Added DocBlocks and reformatted all code.
+  * Fixed some tests
+
 1.2.0 / 2012-10-14
 ==================
 
