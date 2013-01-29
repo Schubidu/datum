@@ -14,6 +14,10 @@ use DateTime;
 use DateInterval;
 use DateTimeZone;
 
+/**
+ * This class effectivly emulates the DateTimeImmutable class that was added
+ * in PHP 5.5.
+ */
 class DateTimeImmutable extends DateTime
 {
     private static $immutable = true;
